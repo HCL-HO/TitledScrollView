@@ -38,9 +38,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final RecyclerViewAdapter.ViewHolder holder, int position) {
         holder.typeNameText.setText(itemList.get(position));
-        TextView child = new TextView(context);
-        child.setText("child  " + itemList.get(position));
-        holder.typeContainer.addView(child);
+        if (holder.typeContainer.getChildCount() <= 0) {
+            TextView child = new TextView(context);
+            child.setText("child  " + itemList.get(position));
+            holder.typeContainer.addView(child);
+        }
     }
 
     private void addBottomPadding(View itemView) {

@@ -17,9 +17,9 @@ public class HeaderScrollerManager {
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
             int tabPosition = tabLayout.getSelectedTabPosition();
+            int scrolledPosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
             switch (newState) {
                 case RecyclerView.SCROLL_STATE_IDLE:
-                    int scrolledPosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
                     if (scrolledPosition != tabPosition) {
                         TabLayout.Tab tab = tabLayout.getTabAt(scrolledPosition);
                         if (tab != null) {
