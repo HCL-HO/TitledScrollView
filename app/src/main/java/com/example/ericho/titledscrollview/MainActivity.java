@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -64,9 +65,17 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, words);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(RecyclerViewAdapter.getNormalGridManager(this));
+        setBottomPadding(recyclerView);
 
         HeaderScrollerManager headerScrollerManager = new HeaderScrollerManager(recyclerView, tabLayout);
         headerScrollerManager.bindOnListScrollListener();
+    }
+
+    private void setBottomPadding(RecyclerView recyclerView) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels * 3 / 4;
+        recyclerView.addItemDecoration(new RecyclerViewAdapter.SpacesItemDecoration(height));
     }
 
 

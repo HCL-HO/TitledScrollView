@@ -3,6 +3,8 @@ package com.example.ericho.titledscrollview;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.TextView;
 
 public class HeaderScrollerManager {
