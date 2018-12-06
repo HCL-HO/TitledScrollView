@@ -44,24 +44,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.typeContainer.addView(child);
         }
     }
-
-    private void addBottomPadding(View itemView) {
-        int recyclerViewMeasuredHeight = recyclerView.getMeasuredHeight();
-        int childMeasuredHeight = itemView.getMeasuredHeight();
-        int numOfItems = Math.round(recyclerViewMeasuredHeight / childMeasuredHeight);
-        int extraItems = getItemCount() % numOfItems;
-        recyclerView.setPadding(0, 0, 0, extraItems * childMeasuredHeight);
-
-    }
+//
+//    private void addBottomPadding(View itemView) {
+//        int recyclerViewMeasuredHeight = recyclerView.getMeasuredHeight();
+//        int childMeasuredHeight = itemView.getMeasuredHeight();
+//        int numOfItems = Math.round(recyclerViewMeasuredHeight / childMeasuredHeight);
+//        int extraItems = getItemCount() % numOfItems;
+//        recyclerView.setPadding(0, 0, 0, extraItems * childMeasuredHeight);
+//
+//    }
 
     @Override
     public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-//
-//        if (INIT) {
-//            addBottomPadding(holder.itemView);
-//            INIT = !INIT;
-//        }
     }
 
     @Override
